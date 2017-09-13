@@ -32,4 +32,5 @@ for childBranch in ${arr[@]}; do
  git fetch
  git checkout $childBranch
  git merge -v --no-edit origin/development
+ git push
 done
