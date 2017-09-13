@@ -14,6 +14,7 @@ $INCLUDE_PATTERN
 
 #branches=`echo "$ALL_BRANCHES" | eval "grep -P $includePattern"`
 branches=`echo "$ALL_BRANCHES" | eval "grep -Pvw $string4" | eval "grep -Pvw $string5" | eval "grep -Pvw $string3" | eval "grep -Pvw $string2" | eval "grep -Pvw $string1"`
+
 #branches=`echo "$ALL_BRANCHES" | eval "grep -Pvw $string1"`
 #branches=`echo "$ALL_BRANCHES" | eval "grep $includePattern" | cut -d $'\t' -f 2 | cut -d $'/' -f 4`
 #echo "B = $branches"
@@ -26,10 +27,9 @@ branches=`echo "$ALL_BRANCHES" | eval "grep -Pvw $string4" | eval "grep -Pvw $st
 read -a arr <<<$branches
 
 for childBranch in ${arr[@]}; do
- #echo
- echo "1 " $childBranch
+ echo $childBranch
  git remote update
- git fetch
+ git fetch origin
  git checkout $childBranch
- git merge -v --no-edit origin/development
+ #git merge -v --no-edit origin/development
 done
