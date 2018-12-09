@@ -2,7 +2,7 @@ node{
   stage(
 "prepare"){
     sh """
-      echo "hi there"
+      echo "hi there jenkinsfile"
     """
   }
 }
